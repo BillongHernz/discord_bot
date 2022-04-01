@@ -104,7 +104,7 @@ class TicTacToe:
 
         return False
 
-    def new_match(self):
+    def new_game(self):
         self.win = False
         self.tie = False
         self.moves = 0
@@ -117,7 +117,7 @@ class TicTacToe:
 
         if self.tie or self.win or self.moves == 9:
             print("Starting New Match with current move")
-            self.new_match()
+            self.new_game()
 
         if not self.__add_move(row, col):
             print(self.error_msg)
@@ -141,8 +141,17 @@ class TicTacToe:
     def has_tie(self):
         return self.__check_tie()
 
-    def curr_player(self):
-        return self.player
+    def last_player(self):
+        if self.player == 1:
+            return "X"
+        else:
+            return "0"
+
+    def next_player(self):
+        if self.player == 2:
+            return "X"
+        else:
+            return "0"
 
     def get_history(self):
         return self.history
